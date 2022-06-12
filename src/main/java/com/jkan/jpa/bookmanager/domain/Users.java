@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Builder
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue
@@ -25,8 +25,8 @@ public class User {
     @NonNull
     private String email;
 
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime created_at;
+    private LocalDateTime updated_at;
 
 
 }
