@@ -2,18 +2,24 @@ package com.jkan.jpa.bookmanager.domain;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
 //nonnull or final이 없으면 noArg와 똑같다.
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@Data
+@Entity
+@Builder
 public class User {
 
-    //nonnull이 되어있는 생성자를 만들 수있따.
+    @Id
+    @GeneratedValue
+    private Long id;
+
     @NonNull
     private String name;
     @NonNull
