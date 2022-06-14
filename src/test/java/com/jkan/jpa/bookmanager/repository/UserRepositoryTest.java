@@ -9,6 +9,8 @@ import org.springframework.data.domain.Sort;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -19,7 +21,7 @@ class UserRepositoryTest {
     @Test
     @Transactional
     void crud() {
-        Users user = userRepository.getOne(1L);
+        Users user = userRepository.findById(1L).orElse(null);
 
         System.out.println(user);
 
