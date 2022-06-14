@@ -21,9 +21,9 @@ class UserRepositoryTest {
     @Test
     @Transactional
     void crud() {
-        long count = userRepository.count();
+        boolean isExists = userRepository.existsById(1L);
 
-        System.out.println(count);
+        System.out.println(isExists);
 
     }
 }
