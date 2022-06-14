@@ -21,9 +21,9 @@ class UserRepositoryTest {
     @Test
     @Transactional
     void crud() {
-        Users user = userRepository.findById(1L).orElse(null);
+        long count = userRepository.count();
 
-        System.out.println(user);
+        System.out.println(count);
 
     }
 }
