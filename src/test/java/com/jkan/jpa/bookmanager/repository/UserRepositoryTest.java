@@ -21,9 +21,7 @@ class UserRepositoryTest {
     @Test
     @Transactional
     void crud() {
-        boolean isExists = userRepository.existsById(1L);
-
-        System.out.println(isExists);
+        userRepository.delete(userRepository.findById(1L).orElseThrow(RuntimeException::new));
 
     }
 }
