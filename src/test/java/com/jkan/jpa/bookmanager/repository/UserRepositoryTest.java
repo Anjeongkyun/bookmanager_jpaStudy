@@ -1,6 +1,7 @@
 package com.jkan.jpa.bookmanager.repository;
 
 import com.jkan.jpa.bookmanager.domain.Users;
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,16 +13,19 @@ import java.util.List;
 class UserRepositoryTest {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Test
     void crud() {
-        List<Users> users = userRepository.findAll(Sort.by(Sort.Direction.DESC,"name"));
+        Users user1 = new Users("jack", "jkck@naver.com");
+        Users user2 = new Users("jack2", "jkck2@naver.com");
+
+        userRepository.saveAll(Lists.newArrayList(user1, user2));
+
+        List<Users> users = userRepository.findAll();
+
         users.forEach(System.out::println);
-//
-//        userRepository.save(new Users());
-//
-//        //findAll은 지양한다. 천만건이 있으면 천만건을 다 올려서 out of memory 발생 여지있음.
-//        userRepository.findAll().forEach(System.out::println);
+
+
     }
 }
