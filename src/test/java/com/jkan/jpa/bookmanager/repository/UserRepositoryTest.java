@@ -14,21 +14,20 @@ import java.util.Optional;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 
-@SpringBootTest
-class UserRepositoryTest {
+    @SpringBootTest
+    class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
 
     @Test
     void crud() {
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnorePaths("name")
-                .withMatcher("email", endsWith());
+        userRepository.save(new Users("jeongkyun", "dkswjdrbs12@naver.com"));
 
-        Example<Users> example = Example.of(new Users("ma", "naver.com"), matcher);
+        Users user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
 
-        userRepository.findAll(example).forEach(System.out::println);
+        user.setEmail("anwjdrbs123@gmail.com");
 
+        userRepository.save(user);
     }
 }
