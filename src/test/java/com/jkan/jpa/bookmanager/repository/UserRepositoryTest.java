@@ -34,6 +34,7 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
     @Test
     void select() {
         System.out.println(userRepository.findByName("jkan"));
-
+        System.out.println("findByEmail : " + userRepository.findByEmail("shkim@naver.com"));
+        System.out.println("getByEmail : " + userRepository.getByEmail("shkim@naver.com"));
     }
 }

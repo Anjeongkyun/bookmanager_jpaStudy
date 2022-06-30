@@ -9,4 +9,19 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<Users, Long> {
 
     List<Users> findByName(String name);
+
+    Users findByEmail(String email);
+
+    Users getByEmail(String email);
+
+    Users readByEmail(String email);
+
+    Users queryByEmail(String email);
+
+    Users searchByEmail(String email);
+
+    Users streamByEmail(String email);
+
+    Users findUserByEmail(String email);
+
 }
