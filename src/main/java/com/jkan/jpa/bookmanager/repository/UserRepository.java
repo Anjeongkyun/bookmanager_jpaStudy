@@ -4,6 +4,7 @@ package com.jkan.jpa.bookmanager.repository;
 import com.jkan.jpa.bookmanager.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<Users, Long> {
@@ -28,4 +29,10 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     List<Users> findFirst1ByName(String name);
 
     List<Users> findByEmailAndName(String email, String name);
+
+    List<Users> findByCreatedAtAfter(LocalDateTime yesterday);
+
+//    List<Users> findByIdAfter(Long id);
+
+//    List<Users> findByCreatedAtGreaterThanAnd(LocalDateTime yesterday);
 }

@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,19 +34,24 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 
     @Test
     void select() {
-        System.out.println(userRepository.findByName("jkan"));
-        System.out.println("findByEmail : " + userRepository.findByEmail("shkim@naver.com"));
-        System.out.println("getByEmail : " + userRepository.getByEmail("shkim@naver.com"));
-        System.out.println("readByEmail : " + userRepository.readByEmail("shkim@naver.com"));
-        System.out.println("queryByEmail : " + userRepository.queryByEmail("shkim@naver.com"));
-        System.out.println("searchByEmail : " + userRepository.searchByEmail("shkim@naver.com"));
-        System.out.println("streamByEmail : " + userRepository.streamByEmail("shkim@naver.com"));
-        System.out.println("findUserByEmail : " + userRepository.findUserByEmail("shkim@naver.com"));
+//        System.out.println(userRepository.findByName("jkan"));
+//        System.out.println("findByEmail : " + userRepository.findByEmail("shkim@naver.com"));
+//        System.out.println("getByEmail : " + userRepository.getByEmail("shkim@naver.com"));
+//        System.out.println("readByEmail : " + userRepository.readByEmail("shkim@naver.com"));
+//        System.out.println("queryByEmail : " + userRepository.queryByEmail("shkim@naver.com"));
+//        System.out.println("searchByEmail : " + userRepository.searchByEmail("shkim@naver.com"));
+//        System.out.println("streamByEmail : " + userRepository.streamByEmail("shkim@naver.com"));
+//        System.out.println("findUserByEmail : " + userRepository.findUserByEmail("shkim@naver.com"));
+//
+//        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("jkan"));
+//        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("jkan"));
 
-        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("jkan"));
-        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("jkan"));
+//        System.out.println("findByEmailAndName" + userRepository.findByEmailAndName("jkan@naver.com","jkan"));
 
-        System.out.println("findByEmailAndName" + userRepository.findByEmailAndName("jkan@naver.com","jkan"));
+        System.out.println("findByCreatedAtAfter" + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
+
+//        System.out.println("findByIdAfter" + userRepository.findByIdAfter(4L));
+//        System.out.println("findByCreatedAtGreaterThanAnd" + userRepository.findByCreatedAtGreaterThanAnd(LocalDateTime.now().minusDays(1L)));
 
     }
 }
