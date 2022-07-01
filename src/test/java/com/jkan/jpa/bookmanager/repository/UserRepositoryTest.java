@@ -44,5 +44,8 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 
         System.out.println("findTop1ByName : " + userRepository.findTop1ByName("jkan"));
         System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("jkan"));
+
+        System.out.println("findByEmailAndName" + userRepository.findByEmailAndName("jkan@naver.com","jkan"));
+
     }
 }
