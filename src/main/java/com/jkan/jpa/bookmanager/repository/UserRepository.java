@@ -37,4 +37,9 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     List<Users> findByCreatedAtGreaterThan(LocalDateTime yesterday);
 
     List<Users> findByCreatedAtGreaterThanEqual(LocalDateTime yesterday);
+
+    List<Users> findByIdIsNotNull();
+
+//    List<Users> findByIdIsNotEmpty();
+
 }
