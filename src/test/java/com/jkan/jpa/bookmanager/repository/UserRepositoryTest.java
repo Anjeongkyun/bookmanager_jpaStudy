@@ -50,8 +50,9 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 
         System.out.println("findByCreatedAtAfter" + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
 
-//        System.out.println("findByIdAfter" + userRepository.findByIdAfter(4L));
-//        System.out.println("findByCreatedAtGreaterThanAnd" + userRepository.findByCreatedAtGreaterThanAnd(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByIdAfter" + userRepository.findByIdAfter(4L));
+        System.out.println("findByCreatedAtGreaterThanAnd" + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByCreatedAtGreaterThanEqual" + userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)));
 
     }
 }
