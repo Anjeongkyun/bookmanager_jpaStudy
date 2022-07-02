@@ -40,6 +40,6 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     List<Users> findByIdIsNotNull();
 
-//    List<Users> findByIdIsNotEmpty();
+    List<Users> findByAddressIsNotEmpty();
 
 }

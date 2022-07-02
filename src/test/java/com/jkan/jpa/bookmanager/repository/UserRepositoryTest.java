@@ -35,7 +35,7 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
     @Test
     void select() {
         System.out.println("findByIdIsNotNull" + userRepository.findByIdIsNotNull());
-//        System.out.println("findByIdIsNotEmpty" + userRepository.findByIdIsNotEmpty());
+        System.out.println("findByAddressIsNotEmpty" + userRepository.findByAddressIsNotEmpty());
 
     }
 }
