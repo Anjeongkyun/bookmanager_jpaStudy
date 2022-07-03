@@ -1,5 +1,6 @@
 package com.jkan.jpa.bookmanager.repository;
 
+import com.jkan.jpa.bookmanager.domain.Gender;
 import com.jkan.jpa.bookmanager.domain.Users;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -36,6 +37,18 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
     void select() {
         System.out.println("findByIdIsNotNull" + userRepository.findByIdIsNotNull());
         System.out.println("findByAddressIsNotEmpty" + userRepository.findByAddressIsNotEmpty());
+
+    }
+    @Test
+    void enumTest(){
+        Users user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        userRepository.findAll().forEach(System.out::println);
+
+        System.out.println(userRepository.findRowRecord().get("gender"));
 
     }
 }

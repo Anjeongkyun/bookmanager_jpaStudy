@@ -3,9 +3,11 @@ package com.jkan.jpa.bookmanager.repository;
 
 import com.jkan.jpa.bookmanager.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 public interface UserRepository extends JpaRepository<Users, Long> {
 
@@ -42,4 +44,6 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     List<Users> findByAddressIsNotEmpty();
 
+    @Query(value = "select * from users limit 1;", nativeQuery = true)
+    Map<String, Object> findRowRecord();
 }

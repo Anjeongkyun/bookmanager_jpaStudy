@@ -27,6 +27,9 @@ public class Users {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    @Enumerated(value = EnumType.STRING)
+    private Gender gender;
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Address> address;
 
