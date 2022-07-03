@@ -1,6 +1,9 @@
 package com.jkan.jpa.bookmanager.domain;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,7 +16,7 @@ import java.util.List;
 @Data
 @Entity
 @Builder
-@EntityListeners(value = {MyEntityListener.class, UserEntityListener.class})
+@EntityListeners(value = {AuditingEntityListener.class, UserEntityListener.class})
 public class Users implements Auditable{
 
     @Id
@@ -25,7 +28,9 @@ public class Users implements Auditable{
     @NonNull
     private String email;
 
+    @CreatedDate
     private LocalDateTime createdAt;
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
     @Enumerated(value = EnumType.STRING)
