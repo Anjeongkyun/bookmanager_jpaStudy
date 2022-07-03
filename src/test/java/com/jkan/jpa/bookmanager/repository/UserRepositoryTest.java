@@ -2,19 +2,9 @@ package com.jkan.jpa.bookmanager.repository;
 
 import com.jkan.jpa.bookmanager.domain.Gender;
 import com.jkan.jpa.bookmanager.domain.Users;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.*;
-
-import javax.transaction.Transactional;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
-
 
     @SpringBootTest
     class UserRepositoryTest {
@@ -22,6 +12,8 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserHistoryRepository userHistoryRepository;
     @Test
     void crud() {
         userRepository.save(new Users("jeongkyun", "dkswjdrbs12@naver.com"));
@@ -49,6 +41,20 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
         userRepository.findAll().forEach(System.out::println);
 
         System.out.println(userRepository.findRowRecord().get("gender"));
+
+    }
+    @Test
+    void userHistoryTest() {
+        Users user = new Users();
+        user.setEmail("jkan@naver.com");
+        user.setName("jkan");
+
+        userRepository.save(user);
+
+        user.setName("jkan-new");
+
+        userRepository.save(user);
+        userHistoryRepository.findAll().forEach(System.out::println);
 
     }
 }
