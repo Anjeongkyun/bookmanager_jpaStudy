@@ -13,7 +13,8 @@ import java.util.List;
 @Data
 @Entity
 @Builder
-public class Users {
+@EntityListeners(value = MyEntityListener.class)
+public class Users implements Auditable{
 
     @Id
     @GeneratedValue
