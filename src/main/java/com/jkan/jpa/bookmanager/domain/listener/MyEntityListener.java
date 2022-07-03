@@ -1,6 +1,5 @@
-package com.jkan.jpa.bookmanager.domain;
+package com.jkan.jpa.bookmanager.domain.listener;
 
-import javax.persistence.EntityListeners;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;

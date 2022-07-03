@@ -1,5 +1,7 @@
 package com.jkan.jpa.bookmanager.domain;
 
+import com.jkan.jpa.bookmanager.domain.listener.Auditable;
+import com.jkan.jpa.bookmanager.domain.listener.UserEntityListener;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -16,8 +18,10 @@ import java.util.List;
 @Data
 @Entity
 @Builder
-@EntityListeners(value = {AuditingEntityListener.class, UserEntityListener.class})
-public class Users implements Auditable{
+@EntityListeners(value = {UserEntityListener.class})
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class Users extends BaseEntity implements Auditable{
 
     @Id
     @GeneratedValue
@@ -27,11 +31,6 @@ public class Users implements Auditable{
     private String name;
     @NonNull
     private String email;
-
-    @CreatedDate
-    private LocalDateTime createdAt;
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
 
     @Enumerated(value = EnumType.STRING)
     private Gender gender;

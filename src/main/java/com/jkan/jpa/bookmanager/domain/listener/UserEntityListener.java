@@ -1,5 +1,7 @@
-package com.jkan.jpa.bookmanager.domain;
+package com.jkan.jpa.bookmanager.domain.listener;
 
+import com.jkan.jpa.bookmanager.domain.UserHistory;
+import com.jkan.jpa.bookmanager.domain.Users;
 import com.jkan.jpa.bookmanager.repository.UserHistoryRepository;
 import com.jkan.jpa.bookmanager.support.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
