@@ -23,6 +23,11 @@ public class Book  extends BaseEntity{
     private Long id;
 
     private String name;
-    private String author;
+
+    private String category;
+
+    private Long authorId;
+
+    private Long publisherId;
 
 }

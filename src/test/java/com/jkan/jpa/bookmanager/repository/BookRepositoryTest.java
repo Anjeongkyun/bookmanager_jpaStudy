@@ -15,7 +15,8 @@ public class BookRepositoryTest {
     void bookTest() {
         Book book = new Book();
         book.setName("토비의 스프링");
-        book.setAuthor("토비");
+        book.setAuthorId(1L);
+        book.setPublisherId(1L);
 
         bookRepository.save(book);
 
