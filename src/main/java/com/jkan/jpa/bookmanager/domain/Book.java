@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Book  extends BaseEntity implements Auditable {
+public class Book  extends BaseEntity{
     @Id
     @GeneratedValue
     private Long id;

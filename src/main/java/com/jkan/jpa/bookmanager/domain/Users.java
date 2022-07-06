@@ -21,7 +21,7 @@ import java.util.List;
 @EntityListeners(value = {UserEntityListener.class})
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Users extends BaseEntity implements Auditable{
+public class Users extends BaseEntity{
 
     @Id
     @GeneratedValue
