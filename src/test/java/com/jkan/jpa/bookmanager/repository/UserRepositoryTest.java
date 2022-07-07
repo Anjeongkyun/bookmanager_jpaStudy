@@ -57,4 +57,16 @@ import org.springframework.boot.test.context.SpringBootTest;
         userHistoryRepository.findAll().forEach(System.out::println);
 
     }
+
+    @Test
+    void userRelationTest(){
+        Users user = new Users();
+        user.setName("jkan");
+        user.setEmail("jkan@naver.com");
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        userHistoryRepository.findAll().forEach(System.out::println);
+    }
 }
