@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 //nonnull or final이 없으면 noArg와 똑같다.
@@ -36,6 +37,6 @@ public class Users extends BaseEntity{
     private Gender gender;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Address> address;
-
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private List<UserHistory> userHistories;
 }

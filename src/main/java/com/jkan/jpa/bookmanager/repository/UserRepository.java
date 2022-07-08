@@ -42,7 +42,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
     List<Users> findByIdIsNotNull();
 
-    List<Users> findByAddressIsNotEmpty();
+//    List<Users> findByAddressIsNotEmpty();
 
     @Query(value = "select * from users limit 1;", nativeQuery = true)
     Map<String, Object> findRowRecord();
