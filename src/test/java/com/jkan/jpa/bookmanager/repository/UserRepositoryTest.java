@@ -30,8 +30,8 @@ import java.util.List;
 
     @Test
     void select() {
-        System.out.println("findByIdIsNotNull" + userRepository.findByIdIsNotNull());
-        System.out.println("findByAddressIsNotEmpty" + userRepository.findByAddressIsNotEmpty());
+//        System.out.println("findByIdIsNotNull" + userRepository.findByIdIsNotNull());
+//        System.out.println("findByAddressIsNotEmpty" + userRepository.findByAddressIsNotEmpty());
 
     }
     @Test
@@ -65,7 +65,7 @@ import java.util.List;
     void userRelationTest(){
         Users user = new Users();
         user.setName("jkan");
-        user.setEmail("jkan@naver.com");
+        user.setEmail("jkan22@naver.com");
         user.setGender(Gender.MALE);
 
         userRepository.save(user);
@@ -74,10 +74,10 @@ import java.util.List;
         userRepository.save(user);
 
 //        userHistoryRepository.findAll().forEach(System.out::println);
-        List<UserHistory> result = userHistoryRepository.findByUserId(
-                userRepository.findByEmail("jkan").getId()
-        );
 
+
+        List<UserHistory> result = userRepository.findByEmail("jkan22@naver.com").getUserHistories();
+////
         result.forEach(System.out::println);
     }
 }
