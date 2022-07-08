@@ -1,12 +1,15 @@
 package com.jkan.jpa.bookmanager.repository;
 
 import com.jkan.jpa.bookmanager.domain.Gender;
+import com.jkan.jpa.bookmanager.domain.UserHistory;
 import com.jkan.jpa.bookmanager.domain.Users;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-    @SpringBootTest
+import java.util.List;
+
+@SpringBootTest
     class UserRepositoryTest {
 
     @Autowired
@@ -67,6 +70,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
         userRepository.save(user);
 
-        userHistoryRepository.findAll().forEach(System.out::println);
+        user.setName("lsh");
+        userRepository.save(user);
+
+//        userHistoryRepository.findAll().forEach(System.out::println);
+        List<UserHistory> result = userHistoryRepository.findByUserId(
+                userRepository.findByEmail("jkan").getId()
+        );
+
+        result.forEach(System.out::println);
     }
 }
