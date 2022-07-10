@@ -73,7 +73,7 @@ import java.util.List;
         user.setName("lsh");
         userRepository.save(user);
 
-//        userHistoryRepository.findAll().forEach(System.out::println);
+        userHistoryRepository.findAll().forEach(System.out::println);
 
 
         List<UserHistory> result = userRepository.findByEmail("jkan22@naver.com").getUserHistories();
