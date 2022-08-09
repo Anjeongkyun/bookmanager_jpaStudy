@@ -19,14 +19,6 @@ class BookReviewRepositoryTest {
 
     @Test
     void crudTest() {
-//        BookReviewInfo bookReviewInfo = new BookReviewInfo();
-//        bookReviewInfo.setBookId(1L);
-//        bookReviewInfo.setAverageReviewScore(4.5f);
-//        bookReviewInfo.setReviewCount(2);
-//
-//        bookReviewRepository.save(bookReviewInfo);
-//
-//        System.out.println(">>>>>" + bookReviewRepository.findAll());
 
     }
 
