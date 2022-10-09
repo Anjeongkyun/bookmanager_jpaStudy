@@ -21,6 +21,8 @@ public class Publisher extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     @OneToMany
     @JoinColumn(name = "publisher_id")
     private List<Book> books = new ArrayList<>();

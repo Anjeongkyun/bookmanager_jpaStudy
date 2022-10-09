@@ -48,7 +48,7 @@ class BookReviewRepositoryTest {
 
         book.setName("jpaStudy");
         book.setAuthorId(1L);
-        book.setPublisherId(1L);
+//        book.setPublisherId(1L);
 
         return bookRepository.save(book);
     }
